@@ -64,6 +64,7 @@ REAL*8,ALLOCATABLE,SAVE :: rsoil0(:),PARdiro(:),PARdifo(:)
 INTEGER :: TypeLidf,ii
 integer :: arg_num, funit, rc
 character(len=256) :: case_name, input_name, output_name
+logical OK
 
 namelist /SAIL4/ LAI, hspot, tts, tto, psi, psoil
 namelist /LEAF_CHEM/ Cab, Car, Cbrown, Cw, Cm, N
@@ -141,22 +142,30 @@ if(COMMAND_ARGUMENT_COUNT().ge.1) then
   call GET_COMMAND_ARGUMENT(1,case_name)
   input_name = trim(case_name) // ".nml"
   output_name = trim(case_name) // ".out" 
-  print*, "Reading parametres from file ", input_name
 
+  inquire (file=input_name, EXIST=OK)
 
-  inquire (file=input_name, iostat=rc)
-
-  if (rc /= 0) then
-    print*, "Error: input file ", input_name, " does not exist. Program terminated"
+  if ( .not. OK ) then
+    print*, "Error: input file ", trim(input_name), " does not exist. Program terminated"
     stop
   endif
 
+  print*, "Reading parametres from file ", input_name
+
   ! Open and read Namelist file.
-  open (file=input_name, action="READ", iostat=rc, newunit=funit)
+  open (file=input_name, action="READ", status="OLD", newunit=funit)
+
   read (nml=SAIL4, iostat=rc, unit=funit)
-  if (rc /= 0) print*, "Error: invalid Namelist format"
+  if (rc /= 0) then 
+		print*, "Error: invalid Namelist format! Program terminated"
+		stop
+	endif
+
   read (nml=LEAF_CHEM, iostat=rc, unit=funit)
-  if (rc /= 0) print*, "Error: invalid Namelist format"
+  if (rc /= 0) then 
+		print*, "Error: invalid Namelist format! Program terminated"
+		stop
+	endif
 
 	close(funit)
 endif
@@ -191,6 +200,9 @@ endif
 	OPEN (unit=11,file=output_name)
 		WRITE(11,'(i4,f10.6)') (lambda(ii),resv(ii), ii=1,nw)
 	CLOSE(11)
+
+	print*, "Model OK"
+	print*, "Output is written to ", trim(output_name)
 
 STOP
 END
