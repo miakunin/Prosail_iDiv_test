@@ -4,10 +4,10 @@ This small tweak for the PROSAIL RT model adds a simple I/O interface to the mai
 
 Usage of the model is the following:
 
-./PROSAIL_EXEC_w_interface ${case_name}
+./PROSAIL_EXEC_w_interface $casename
 
-The ${case_name} says to the model that it should use ${case_name}.nml input file with input parametres and write the model ouput to the ${case_name}.out.
+The $casename says to the model that it should use $casename.nml input file with input parametres and write the model ouput to the $casename.out.
 
-If the ${case_name} is not provided, a "default" values for the model parametres would be used (see in the code).
+If the $casename is not provided, a "default" values for the model parametres would be used (see in the code).
 
  
