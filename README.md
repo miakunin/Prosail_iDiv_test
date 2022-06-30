@@ -10,4 +10,7 @@ The $casename says to the model that it should use $casename.nml input file with
 
 If the $casename is not provided, a "default" values for the model parametres would be used (see in the code).
 
- 
+To use the model one should first obtain the original code here: http://teledetection.ipgp.jussieu.fr/prosail/ (http://teledetection.ipgp.jussieu.fr/prosail/PROSAIL_5B_Fortran.rar)
+The current source provides ONLY modified main model program
+
+To build the model simply run _make_

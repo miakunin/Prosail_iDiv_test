@@ -1,6 +1,7 @@
 *.o
 *.mod
 *.swp
+*.bak
 dladgen.f
 dataSpec_P5B.f90
 LIDF.f90
@@ -11,3 +12,8 @@ prospect_5B.f90
 tav_abs.f90
 volscatt.f90
 PROSAIL_EXEC_w_interface
+tex/short_report.log
+tex/short_report.synctex.gz
+*log
+*gz
+

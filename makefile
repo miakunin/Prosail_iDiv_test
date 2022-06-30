@@ -9,7 +9,7 @@ FC = gfortran
 FCFLAGS = -g -O3# -Wall
 
 # link flags
-FLFLAGS = -lnetcdff -lnetcdf
+# FLFLAGS = -lnetcdff -lnetcdf
 
 # include path
 #INC =

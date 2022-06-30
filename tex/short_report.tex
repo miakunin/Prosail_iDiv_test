@@ -70,7 +70,7 @@ Layer	RWC[-]	FC[V%]	PWP[V%]	MineralN[gm-2]
 
 Having no other clue I decided to focus on PROSAIL "stand-alone". I obtained the source code from \url{http://teledetection.ipgp.jussieu.fr/prosail/} choosing \textit{PROSAIL\_5B\_Fortran} version since I am more familiar with FORTRAN.
 
-The model runs fast and and writes reflectance with 1 nm step to the ASCII output file. All the input parameters are hardcoded in the main main, so I reworked it a little to improve utility and make the model read some principal input values from a standard FORTRAN namelist file.
+The model runs fast and writes reflectance with 1 nm step to the ASCII output file. All the input parameters are hardcoded in the main, so I reworked it a little to improve utility and make the model read some principal input values from a standard FORTRAN namelist file.
 
 For the test case the following parameters was chosen: \textit{LAI, Cab, Car, Cbrown, Cw, Cm, N, hsop, psoil.} An abundance of literature where PROSAIL model was used revealed possible ranges for the variables, and I ended up with the following for the test cases:
 
@@ -109,6 +109,13 @@ In the "errors" or uncertainties of the input parameters, especially from LAI, l
 \textit{How could GRASSMIND be used to answer these questions?} 
 GRASSMIND model, as I believe, can provide actual values for required parameters, therefore reducing possible errors in the situations where in-situ measurements aren't possible.
 
+~ \\
+
+The tweak for the PROSAIL model is available here:\\ \url{https://github.com/miakunin/Prosail_iDiv_test.git}
+
+PLEASE NOTE(!!) that this git provides ONLY the main file of the PROSAIL model(!!!). To compile and run it one need to get the original model files from official source: \url{http://teledetection.ipgp.jussieu.fr/prosail/PROSAIL_5B_Fortran.rar}
+
+This was done not to violate original licenses.
 
 
 \end{document}
