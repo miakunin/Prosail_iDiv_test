@@ -1,0 +1,16 @@
+&SAIL4
+  LAI   = 6.    ! leaf area index (m^2/m^2)
+  hspot = 0.01  ! hot spot
+  tts   = 30.   ! solar zenith angle (°)
+  tto   = 10.   ! observer zenith angle (°)
+  psi   = 0.    ! azimuth (°)
+  psoil = 0.1	! soil factor (psoil=0: wet soil / psoil=1: dry soil)
+/
+&LEAF_CHEM
+  Cab   = 30.   	! chlorophyll content (µg.cm-2)
+  Car   = 7.    	! carotenoid content (µg.cm-2)
+  Cbrown  = 0.0   ! brown pigment content (arbitrary units)
+  Cw    = 0.03  	! EWT (cm)
+  Cm    = 0.005 	! LMA (g.cm-2)
+  N   = 1.5   		! structure coefficient
+/
